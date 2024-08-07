@@ -1,0 +1,127 @@
+[workspace]
+resolver = "2"
+# Keep in the lexicographic order!
+# Remove a member if it's used as a dependency in the workspace.
+members = [
+   
+    "dex",
+    "dex/factory",
+    "dex/factory/state",
+    "dex/state",
+    "dex/wvara",
+    "dex/wvara/state",
+    "dex/router",
+    "dex/router/state",
+    "dex/test_transfer_token",
+    "fungible-token",
+    "fungible-token/state",
+  
+    "multi-token",
+    "multisig-wallet",
+    "multisig-wallet/state",
+   
+   
+    "sharded-fungible-token",
+    "sharded-fungible-token/logic",
+    "sharded-fungible-token/storage",
+   
+    # Noncontract crates
+
+    "gear-lib",
+    "xtask",
+]
+
+[workspace.package]
+homepage = "https://wiki.gear-tech.io/docs/examples/prerequisites"
+documentation = "https://dapps.gear.rs"
+authors = ["Gear Foundation <hello@gear.foundation>"]
+version = "1.1.0"
+license = "MIT"
+edition = "2021"
+publish = false
+
+[workspace.dependencies]
+# Local contracts
+# Keep in the lexicographic order!
+
+
+dex-factory.path = "dex/factory"
+dex-wvara.path = "dex/wvara"
+dex-router.path = "dex/router"
+dex-test-transfer.path = "dex/test_transfer_token"
+fungible-token.path = "fungible-token"
+multi-token.path = "multi-token"
+
+sharded-fungible-token.path = "sharded-fungible-token"
+sharded-fungible-token-logic.path = "sharded-fungible-token/logic"
+sharded-fungible-token-storage.path = "sharded-fungible-token/storage"
+
+
+# Local states
+# Keep in the lexicographic order!
+
+dex-factory-state.path = "dex/factory/state"
+dex-state.path = "dex/state"
+dex-wvara-state.path = "dex/wvara/state"
+dex-router-state.path = "dex/router/state"
+
+# Local IO-crates
+# Keep in the lexicographic order!
+
+dex-factory-io.path = "dex/factory/io"
+dex-io.path = "dex/io"
+dex-wvara-io.path = "dex/wvara/io"
+dex-router-io.path = "dex/router/io"
+dex-test-transfer-io.path = "dex/test_transfer_token/io"
+
+fungible-token-io.path = "fungible-token/io"
+
+multi-token-io.path = "multi-token/io"
+multisig-wallet-io.path = "multisig-wallet/io"
+
+sharded-fungible-token-io.path = "sharded-fungible-token/io"
+sharded-fungible-token-logic-io.path = "sharded-fungible-token/logic/io"
+sharded-fungible-token-storage-io.path = "sharded-fungible-token/storage/io"
+
+
+# Local libraries
+# Keep in the lexicographic order!
+
+gear-lib.path = "gear-lib"
+gear-lib-old.path = "gear-lib-old"
+gear-lib-derive.path = "gear-lib-old/derive"
+
+# Gear
+
+gstd = "1.1.0"
+gear-wasm-builder = "1.1.0"
+gmeta = "1.1.0"
+gclient = "1.1.0"
+gtest = { git = "https://github.com/gear-tech/gear", tag = "v1.1.0" }
+gear-core = "1.1.0"
+
+# External
+
+primitive-types = { version = "0.12", default-features = false }
+sp-core = { version = "22", default-features = false, features = ["full_crypto", "sp-externalities"] }
+sp-core-hashing = { version = "10", default-features = false }
+tokio = "1"
+blake2-rfc = "0.2"
+hex-literal = "0.4"
+hex = { version = "0.4", default-features = false }
+async-trait = "0.1"
+rand = { version = "0.8", default-features = false }
+rand_xoshiro = "0.6"
+indexmap = { version = "2", default-features = false }
+ahash = { version = "0.8", default-features = false, features = ["no-rng"] }
+schnorrkel = { version = "0.10", default-features = false, features = ["u64_backend"] }
+syn = { version = "2", default-features = false }
+quote = "1"
+clap = { version = "4", default-features = false, features = ["std"] }
+enum-iterator = "1"
+xshell = "0.2"
+anyhow = "1"
+sha2 = "0.10"
+num-traits = { version = "0.2", default-features = false }
+scale-info = { version = "2", default-features = false }
+parity-scale-codec = { version = "3", default-features = false }
